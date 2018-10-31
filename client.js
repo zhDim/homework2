@@ -10,4 +10,9 @@ module.exports = class Client {
     attend(appointments) {
         appointments.procedure.push(this)
     } 
+
+    static create({name, address, phoneNumber}) {
+        return new Person(name, address, phoneNumber)
+    }
+    
 }

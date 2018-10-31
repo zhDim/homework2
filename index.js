@@ -26,8 +26,32 @@ console.log(appointedTime3)
 eleonora.attend(appointedTime1)
 appointedTime3.report()
 
-console.log(appointedTime1.procedure)
+console.log(appointedTime1._procedure)
 
-Database.save(appointedTime1)
+/* Database.save(appointedTime1)
 const loadedFile = Database.load()
 console.log(loadedFile.procedure)
+ */
+const main = async () => {
+
+    await Database.save(appointedTime3)
+    const loadedFile3 = await Database.load()
+    console.log(loadedFile3)
+
+    await Database.save(appointedTime1)
+    const loadedFile1 = await Database.load()
+    console.log(loadedFile1)
+
+    await Database.save(appointedTime3)
+    const loadedFile3 = await Database.load()
+    console.log(loadedFile2)
+
+}
+
+(async () => {
+    try {
+        await main()
+    } catch (e) {
+        console.log(e)
+    }
+})()
